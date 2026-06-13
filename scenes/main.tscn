@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dyfsuewqsjxfb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
+size = Vector3(10, 2, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o5qli"]
+size = Vector3(10, 2, 10)
+
+[node name="Main" type="Node" unique_id=2061850428]
+
+[node name="CameraPivot" type="Marker3D" parent="." unique_id=1364249733]
+transform = Transform3D(1, 0, 0, 0, 0.8211492, 0.5707136, 0, -0.5707136, 0.8211492, 0, 0.6456732, 0.5333935)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1976461491]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2141313320]
+transform = Transform3D(1, 0, 0, 0, 0.86591196, 0.50019646, 0, -0.50019646, 0.86591196, 0, 6.203794, 5.574479)
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1264880329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1503211420]
+shape = SubResource("BoxShape3D_sgp6g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=248689844]
+mesh = SubResource("BoxMesh_o5qli")
