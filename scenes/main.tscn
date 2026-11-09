@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dyfsuewqsjxfb"]
 
 [ext_resource type="PackedScene" uid="uid://bwav58d1ux6y" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://kl1ed41duhqc" path="res://scenes/HUD.tscn" id="2_0wfyh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
 size = Vector3(10, 2, 10)
@@ -31,3 +32,6 @@ transform = Transform3D(1, 0, 0, 0, 0.8211492, 0.5707136, 0, -0.5707136, 0.82114
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1976461491]
 transform = Transform3D(1, 0, 0, 0, 0.95983493, -0.28056616, 0, 0.2805662, 0.95983493, 0, -0.27731284, 1.8899262)
 fov = 90.0
+
+[node name="Hud" parent="." unique_id=512777815 node_paths=PackedStringArray("player") instance=ExtResource("2_0wfyh")]
+player = NodePath("../Player")
