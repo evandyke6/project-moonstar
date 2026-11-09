@@ -13,7 +13,7 @@ func physics_update(delta):
 	#elif actor.velocity.length() > 0.1:
 		#animated_sprite.play("nudge")
 	
-	actor.velocity += input.direction * actor.acceleration * delta
+	actor.velocity += input.direction * actor.acceleration
 	
 	if input.total_strength > 0.2:
 		actor.velocity *= input.total_strength

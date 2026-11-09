@@ -10,15 +10,16 @@ var total_strength = 0
 func _process(_delta):
 	direction = Vector3.ZERO
 	if Input.is_action_pressed("input_up"):
-		direction = Vector3.FORWARD
+		direction += Vector3.FORWARD
 	if Input.is_action_pressed("input_down"):
-		direction = Vector3.BACK
+		direction += Vector3.BACK
 	if Input.is_action_pressed("input_left"):
-		direction = Vector3.LEFT
+		direction += Vector3.LEFT
 	if Input.is_action_pressed("input_right"):
-		direction = Vector3.RIGHT
-		
-	#direction = direction * actor.rotation
+		direction += Vector3.RIGHT
+	
+	direction = direction.rotated(Vector3.UP,actor.rotation.y)
+	direction = direction.normalized()
 	
 	total_strength = 0
 	for dir in DIRECTIONS: # For each direction name  
