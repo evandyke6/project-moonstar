@@ -17,6 +17,8 @@ func _process(_delta):
 		direction = Vector3.LEFT
 	if Input.is_action_pressed("input_right"):
 		direction = Vector3.RIGHT
+		
+	#direction = direction * actor.rotation
 	
 	total_strength = 0
 	for dir in DIRECTIONS: # For each direction name  

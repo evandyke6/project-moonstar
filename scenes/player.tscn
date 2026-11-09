@@ -45,6 +45,7 @@ actor = NodePath("../..")
 input = NodePath("../../InputController")
 metadata/_custom_type_script = "uid://tb43js0q2k8o"
 
-[node name="InputController" type="Node" parent="." unique_id=1401087278]
+[node name="InputController" type="Node" parent="." unique_id=1401087278 node_paths=PackedStringArray("actor")]
 script = ExtResource("5_qlg0r")
+actor = NodePath("..")
 metadata/_custom_type_script = "uid://bt2ip65blg15d"
