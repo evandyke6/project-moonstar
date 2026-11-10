@@ -4,6 +4,7 @@ class_name MoveState
 @export var actor : CharacterBody3D
 @export var input : InputController
 @export var animated_sprite : AnimatedSprite2D
+var horizontal_velocity = Vector2.ZERO
 
 func physics_update(delta):
 	#if actor.velocity.length() > 9:
@@ -13,18 +14,25 @@ func physics_update(delta):
 	#elif actor.velocity.length() > 0.1:
 		#animated_sprite.play("nudge")
 	
-	actor.velocity += input.direction * actor.acceleration
+	if actor.is_on_floor():
+		actor.velocity += input.direction * actor.acceleration * delta
 	
 	if input.total_strength > 0.2:
 		actor.velocity *= input.total_strength
 		
-	if !input.direction:
-		actor.velocity = actor.velocity * actor.friction
+	if !input.direction && actor.is_on_floor():
+		actor.velocity = actor.velocity * actor.friction * delta
 		
-	actor.velocity = actor.velocity.limit_length(actor.max_speed)
-	actor.move_and_slide()
+	if input.rotation:
+		actor.rotation.y += actor.rotation_speed * input.rotation * delta
 	
-	print(input.direction)
+	horizontal_velocity = Vector2(actor.velocity.x, actor.velocity.z)
+	if horizontal_velocity.length() > actor.max_speed:
+		horizontal_velocity = horizontal_velocity.normalized() * actor.max_speed
+	
+	actor.velocity.x = horizontal_velocity.x
+	actor.velocity.z = horizontal_velocity.y
+	
 	
 	if actor.velocity.length() < 0.1:
 		Transitioned.emit(self,"idlestate")

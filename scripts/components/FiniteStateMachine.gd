@@ -21,7 +21,6 @@ func _physics_process(delta):
 
 func _process(delta):
 	current_state.update(delta)
-	print(current_state)
 
 func on_change_state(state, new_state_name):
 	if state != current_state:

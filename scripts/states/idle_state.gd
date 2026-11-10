@@ -5,8 +5,14 @@ extends State
 @export var input : InputController
 @export var animated_sprite : AnimatedSprite2D
 	 
-func physics_update(_delta):
-	actor.velocity = Vector3.ZERO
+func physics_update(delta):
+	actor.velocity.x = 0
+	actor.velocity.z = 0
+	
+	if input.rotation:
+		actor.rotation.y += actor.rotation_speed * input.rotation * delta
+	
+	
 	if input.direction:
 		Transitioned.emit(self, "movestate")
 		

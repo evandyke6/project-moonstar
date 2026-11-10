@@ -24,13 +24,16 @@ shape = SubResource("BoxShape3D_sgp6g")
 mesh = SubResource("BoxMesh_o5qli")
 
 [node name="Player" parent="." unique_id=899221661 instance=ExtResource("1_o5qli")]
-transform = Transform3D(0.55334795, 0, 0.8329502, 0, 1, 0, -0.8329502, 0, 0.55334795, 0, 0.66301286, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1717124, 0)
+max_speed = 5.0
+friction = 0.75
+rotation_speed = 2.0
 
-[node name="CameraPivot" type="Marker3D" parent="." unique_id=1364249733]
-transform = Transform3D(1, 0, 0, 0, 0.8211492, 0.5707136, 0, -0.5707136, 0.8211492, 0, 0.6456732, 0.5333935)
+[node name="CameraPivot" type="Marker3D" parent="Player" unique_id=1364249733]
+transform = Transform3D(2, 0, 0, 0, 0.49999997, 0, 0, 0, 1.9999999, 0, 0.8104348, -0.028475404)
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1976461491]
-transform = Transform3D(1, 0, 0, 0, 0.95983493, -0.28056616, 0, 0.2805662, 0.95983493, 0, -0.27731284, 1.8899262)
+[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot" unique_id=1976461491]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
 fov = 90.0
 
 [node name="Hud" parent="." unique_id=512777815 node_paths=PackedStringArray("player") instance=ExtResource("2_0wfyh")]
