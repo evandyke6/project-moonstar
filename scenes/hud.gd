@@ -11,3 +11,5 @@ func _process(delta: float) -> void:
 	get_child(0).text = player.state_machine.current_state.to_string()
 	get_child(0).text += "\n"
 	get_child(0).text += str(player.input_controller.direction)
+	get_child(0).text += "\n"
+	get_child(0).text += str(player.velocity.length())
