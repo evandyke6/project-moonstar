@@ -5,6 +5,7 @@ extends Node
 const DIRECTIONS = ["input_right", "input_left", "input_down", "input_up"]
 @export var actor : CharacterBody3D
 var direction = Vector3.ZERO
+var raw_direction = Vector3.ZERO
 var total_strength = 0
 var rotation = 0
 
@@ -24,6 +25,7 @@ func _process(_delta):
 	if Input.is_action_pressed("input_turnright"):
 		rotation += -1
 	
+	raw_direction = direction
 	direction = direction.rotated(Vector3.UP,actor.rotation.y)
 	direction = direction.normalized()
 	
