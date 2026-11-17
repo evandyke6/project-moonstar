@@ -8,7 +8,7 @@ var direction = Vector3.ZERO
 var raw_direction = Vector3.ZERO
 var total_strength = 0
 var rotation = 0
-var mouse_sensitivity = 0.007
+@export var mouse_sensitivity = 0.007
 var v_mouse_rotation = 0.0
 var h_mouse_rotation = 0.0
 
@@ -22,10 +22,10 @@ func _input(event: InputEvent) -> void:
 		h_mouse_rotation = -event.screen_relative.x * mouse_sensitivity
 		
 func _process(_delta):
-	if v_mouse_rotation == mouse_sensitivity || -mouse_sensitivity:
-		v_mouse_rotation = 0
+	
 	if h_mouse_rotation == mouse_sensitivity || -mouse_sensitivity:
 		h_mouse_rotation = 0
+		
 	direction = Vector3.ZERO
 	rotation = 0
 	

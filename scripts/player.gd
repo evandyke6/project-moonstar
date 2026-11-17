@@ -13,9 +13,10 @@ signal HealthChange
 @export var facing_angle : float = 0.0
 @export var rotation_speed = 5.0
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	rotate_y(input_controller.h_mouse_rotation)
-	
+
+func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
