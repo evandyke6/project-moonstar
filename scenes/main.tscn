@@ -32,7 +32,7 @@ friction = 3.0
 rotation_speed = 2.0
 
 [node name="CameraPivot" parent="Player" unique_id=610594182 node_paths=PackedStringArray("player") instance=ExtResource("2_sugp2")]
-transform = Transform3D(2, 0, 0, 0, 0.49999997, 0, 0, 0, 1.9999999, 0, 0.8104348, -0.028475404)
+transform = Transform3D(2, 0, 0, 0, 0.49999997, 0, 0, 0, 1.9999999, 0, 1.1771059, -0.35022974)
 player = NodePath("..")
 
 [node name="Hud" parent="." unique_id=512777815 node_paths=PackedStringArray("player") instance=ExtResource("2_0wfyh")]
